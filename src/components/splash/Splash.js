@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, Pressable, BackHandler } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
+import * as Animatable from 'react-native-animatable';
 
 
 class Splash extends Component {
@@ -9,7 +10,7 @@ class Splash extends Component {
 
         setTimeout(() => {
             this.props.navigation.navigate("Home");
-        }, 1500);
+        }, 1800);
     }
 
 
@@ -32,20 +33,19 @@ class Splash extends Component {
             <View style={styles.container}>
 
                 <LinearGradient
-                    colors={['#FF6600', '#FFCC29', '#FF6600']}
+                    colors={['#fff', '#fff', '#fff']}
                     style={styles.linearGradient}
 
                 >
-                    <Image
-                        style={styles.tinyLogo}
-                        source={require('../../assets/LOGO1.png')}
+                    <Animatable.Image
+                        style={styles.tinyLogo} resizeMode='contain'
+                        source={require('../../assets/LOGO_RID.png')}
+                        animation="pulse"
+                        easing="ease-out"
+                        iterationCount="infinite"
                     />
 
-                    {/*  <Pressable onPress={() => this.props.navigation.goBack()}
-                        
-                        >
-                            <Text>atras</Text>
-                    </Pressable> */}
+                    
                 </LinearGradient>
             </View >
         );
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     tinyLogo: {
-        width: '50%',
+        height: 100
     },
 })
 

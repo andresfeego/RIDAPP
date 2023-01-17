@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, BackHandler, Alert } from 'react-native'
-
+import { Text, View, BackHandler, Alert, StyleSheet } from 'react-native'
+import GeneralContainer from './generalContainer/GeneralContainer';
+import Header from '../home/header/Header';
 
 
 class Home extends Component {
@@ -23,11 +24,21 @@ class Home extends Component {
 
 
         return (
-            <View>
-            <Text>aaaaaa</Text>
+            <View style={styles.container}>
+                <Header/>
+                <GeneralContainer/>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    }
+})
 
 export default Home;
