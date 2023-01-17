@@ -13,7 +13,7 @@ const CoinsStack = () => {
             headerShown: false
           }}  
           >
-            <Stack.Screen name="Window" component={Splash} />
+            <Stack.Screen name="Splash" component={Splash} />
             <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
     );

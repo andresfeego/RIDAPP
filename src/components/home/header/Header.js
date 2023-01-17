@@ -4,12 +4,12 @@ import colors  from '../../../res/colors';
 import MenuHeader from './components/MenuHeader';
 
 class Header extends Component {
-
-
+  
+  
   render() {
     return (
       <View style={styles.container}>
-        <MenuHeader/>
+        <MenuHeader navigation={this.props.navigation}/>
       </View>
     );
   }

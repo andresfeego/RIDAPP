@@ -11,7 +11,7 @@ class GeneralContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> GeneralContainer </Text>
+        <Text style={styles.text}> HOME </Text>
       </View>
     );
   }
@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
 
+  },
+  text: {
+    fontSize: 50
   }
 })
 

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Dimensions, Animated } from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../../../res/colors';
+import BotonMenu, { type } from './BotonMenu';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,8 +20,7 @@ class MenuHeader extends Component {
     };
   }
 
-  abirMenu(){
-    console.log('abreee');
+  abirMenu() {
     this.setState({
       abierto: true,
       verFondo: 'flex'
@@ -45,8 +45,7 @@ class MenuHeader extends Component {
     ).start();
   }
 
-
-  cerrarMenu(){
+  cerrarMenu() {
     this.setState({
       abierto: false
     })
@@ -73,12 +72,13 @@ class MenuHeader extends Component {
       this.setState({
         verFondo: 'none'
       })
-  }, 500);
+    }, 500);
   }
 
   render() {
 
-    let {menuAbierto, fondoOpacity, verFondo} = this.state;
+    let { menuAbierto, fondoOpacity, verFondo } = this.state;
+
 
     return (
       [
@@ -86,18 +86,33 @@ class MenuHeader extends Component {
           <Icon name="menu" size={30} color={colors.white} />
         </Pressable>,
 
-        <Animated.View key='menucontainer' style={[styles.menuContainer, {left: menuAbierto}]}>
+        <Animated.View key='menucontainer' style={[styles.menuContainer, { left: menuAbierto }]}>
+
           <Pressable style={styles.menuClose} onPress={() => this.cerrarMenu()} >
             <Icon name="close" size={30} color={colors.white} />
           </Pressable>
 
           <View style={styles.header}>
+            <Pressable onPress={''} >
+              <Icon name="account-circle" size={60} color={colors.white} />
+            </Pressable>
+            <Text>¡HOLA JULIAN! </Text>
+            <Text>Julian*****@gmail.com </Text>
+          </View>
+
+          <View style={styles.listaMenu}>
+            <BotonMenu navigation={this.props.navigation} type={type.Foundation} icon='map' label={'Mi Municipio'} goTo={'Splash'}></BotonMenu>
+            <BotonMenu navigation={this.props.navigation} type={type.SimpleLineIcons} icon='puzzle' label={'Dependencias'} goTo={'Splash'}></BotonMenu>
+            <BotonMenu navigation={this.props.navigation} type={type.MaterialCommunityIcons} icon='police-badge-outline' label={'Organismos'} goTo={'Splash'}></BotonMenu>
+            <BotonMenu navigation={this.props.navigation} type={type.FontAwesome5} icon='eye' label={'Auditores'} goTo={'Splash'}></BotonMenu>
+            <BotonMenu navigation={this.props.navigation} type={type.FontAwesome5} icon='user-astronaut' label={'Reportantes'} goTo={'Splash'}></BotonMenu>
+            <BotonMenu navigation={this.props.navigation} type={type.Entypo} icon='book' label={'Manuales funciones'} goTo={'Splash'}></BotonMenu>
+            <BotonMenu navigation={this.props.navigation} type={type.FontAwesome} icon='book' label={'Manuales obligaciones'} goTo={'Splash'}></BotonMenu>
           </View>
 
         </Animated.View>,
 
-        <Animated.View key='fondoMenu' style={[styles.fondoMenu, {display: verFondo, opacity: fondoOpacity}]} >
-
+        <Animated.View key='fondoMenu' style={[styles.fondoMenu, { display: verFondo, opacity: fondoOpacity }]} >
         </Animated.View>
       ]
     );
@@ -112,16 +127,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
   menuContainer: {
     width: offSetHorizontal,
     height: windowHeight,
     position: 'absolute',
     top: 0,
     backgroundColor: 'white',
-    zIndex: 1
+    zIndex: 1,
+    display: 'flex'
   },
-
   menuClose: {
     width: 40,
     height: 40,
@@ -135,16 +149,32 @@ const styles = StyleSheet.create({
   header: {
     width: '100%',
     height: 150,
-    position: 'absolute',
-    backgroundColor: colors.primary,    
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    paddingTop: 25
   },
   fondoMenu: {
     width: windowWidth,
     height: windowHeight,
     position: 'absolute',
-    backgroundColor: 'rgba(0,0,0,0.85)',    
+    backgroundColor: 'rgba(0,0,0,0.85)',
     top: 0,
-    left: 0
+    left: 0,
+  },
+  botonMenu: {
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'row',
+    paddingVertical: 10,
+  },
+  texMenu: {
+    textAlignVertical: 'center'
+  },
+  listaMenu: {
+    width: '100%',
+  },
+  iconMenu: {
+    paddingHorizontal: 20
   },
 })
 

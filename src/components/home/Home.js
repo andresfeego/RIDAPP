@@ -7,7 +7,6 @@ import Header from '../home/header/Header';
 class Home extends Component {
 
     componentDidMount(){
-        console.log('dfgsdfgsdfg')
         this.BackHandler = BackHandler.addEventListener('hadwareBackPress', this.onBackButtonEvent);
     }
 
@@ -25,7 +24,7 @@ class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <Header/>
+                <Header navigation={this.props.navigation}/>
                 <GeneralContainer/>
             </View>
         );
