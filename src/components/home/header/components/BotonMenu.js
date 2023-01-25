@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import IconFoundation from 'react-native-vector-icons/Foundation';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
@@ -44,148 +44,112 @@ class BotonMenu extends Component {
     }
 
     renderIcon() {
-
         var iconSize = 28;
         var iconColor = colors.gray;
-        let { icon, label, goTo, type } = this.props
+        let { icon, type, color, goTo } = this.props
+        if (color) {
+            iconColor = color;
+        }
 
-        switch (type) {
+        var stylesIcon = styles.soloIconMenu;
+        if ( goTo != '' && goTo != undefined ) {
+            stylesIcon = styles.iconMenu;
+        }
+
+        
+        switch (type) {                                                     
             case 'Foundation':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconFoundation name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconFoundation name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'AntDesign':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconAntDesign name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconAntDesign name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'Entypo':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconEntypo name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconEntypo name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'EvilIconsation':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconEvilIcons name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconEvilIcons name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'Feather':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconFeather name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconFeather name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'FontAwesome':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconFontAwesome name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconFontAwesome name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'FontAwesome5':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconFontAwesome5 name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconFontAwesome5 name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'FontAwesome5Pro':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconFontAwesome5Pro name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconFontAwesome5Pro name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'Fontisto':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconFontisto name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconFontisto name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'Ionicons':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconIonicons name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconIonicons name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'MaterialCommunityIcons':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconMaterialCommunityIcons name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconMaterialCommunityIcons name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'MaterialIcons':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconMaterialIcons name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconMaterialIcons name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'Octicons':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconOcticons name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconOcticons name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'SimpleLineIcons':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconSimpleLineIcons name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconSimpleLineIcons name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             case 'Zocial':
                 return (
-                    <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
-                        <IconZocial name={icon} size={iconSize} color={iconColor} style={styles.iconMenu} />
-                        <Text style={styles.texMenu}> {label} </Text>
-                    </Pressable>
+                    <IconZocial name={icon} size={iconSize} color={iconColor} style={stylesIcon} />
                 )
                 break;
 
             default:
+                <Text>okokoko</Text>
                 break;
         }
 
@@ -193,8 +157,20 @@ class BotonMenu extends Component {
 
     render() {
 
+        let { label, goTo } = this.props
         return (
-            this.renderIcon()
+            goTo != '' && goTo != undefined ?
+
+                <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
+                    {this.renderIcon()}
+                    <Text style={styles.texMenu}> {label} </Text>
+                </Pressable>
+
+                :
+
+                this.renderIcon()
+
+
         );
     }
 }
@@ -213,7 +189,15 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     iconMenu: {
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        height:'100%',
+        textAlignVertical: 'center'
+    },
+
+    soloIconMenu: {
+        paddingHorizontal: 3,
+        height:'100%',
+        textAlignVertical: 'center'
     },
 })
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text , StyleSheet } from 'react-native';
-import GoBackBar from '../../general/GoBackBar';
+import colors from '../../../../res/colors';
+import GoBackBar from '../../../generalComponent/GoBackBar';
+import { type } from '../../../home/header/components/BotonMenu';
 
 class ViewDependencias extends Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class ViewDependencias extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GoBackBar name='Dependencias' navigation={this.props.navigation} />
+        <GoBackBar name='Dependencias' icon= 'puzzle' type= {type.SimpleLineIcons} color={colors.white} navigation={this.props.navigation} />
         <Text style={styles.text}> Dependencias </Text>
       </View>
     );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import GoBackBar from '../../general/GoBackBar';
+import colors from '../../../../res/colors';
+import GoBackBar from '../../../generalComponent/GoBackBar';
+import { type } from '../../../home/header/components/BotonMenu';
 
 class ViewManualesObligaciones extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class ViewManualesObligaciones extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GoBackBar name='Manuales Obligaciones' navigation={this.props.navigation} />
+        <GoBackBar name='Manuales Obligaciones' icon='book' type={type.FontAwesome} color={colors.white} navigation={this.props.navigation} />
         <Text style={styles.text}> Manuales Obligaciones </Text>
       </View>
     );
