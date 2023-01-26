@@ -37,7 +37,6 @@ const CoinsStack = () => {
             <Stack.Screen name="ButtomFloating" component={ButtomFloating} />
             <Stack.Screen name="NuevoReporte" component={NuevoReporte} />
             <Stack.Screen name="NuevaTarea" component={NuevaTarea} />
-            
         </Stack.Navigator>
     );
 
