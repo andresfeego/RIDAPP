@@ -46,9 +46,12 @@ class BotonMenu extends Component {
     renderIcon() {
         var iconSize = 28;
         var iconColor = colors.gray;
-        let { icon, type, color, goTo } = this.props
+        let { icon, type, color, goTo, size } = this.props
         if (color) {
             iconColor = color;
+        }
+        if (size) {
+            iconSize = size;
         }
 
         var stylesIcon = styles.soloIconMenu;

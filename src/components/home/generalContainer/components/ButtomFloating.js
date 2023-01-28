@@ -74,6 +74,7 @@ class ButtomFloating extends Component {
   render() {
     return (
       <FloatingAction
+      distanceToEdge= {{ vertical: 95, horizontal: 30 }}
         color={colors.secondary}
         actions={actions}
         onPressItem={name => {

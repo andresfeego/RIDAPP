@@ -93,7 +93,7 @@ class MenuHeader extends Component {
           </Pressable>
 
           <View style={styles.header}>
-            <Pressable onPress={''} >
+            <Pressable >
               <Icon name="account-circle" size={60} color={colors.white} />
             </Pressable>
             <Text>¡HOLA JULIAN! </Text>
