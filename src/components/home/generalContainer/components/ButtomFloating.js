@@ -63,6 +63,15 @@ class ButtomFloating extends Component {
           visibilityTime: 2000
         })
         break;
+        case '7':
+          Toast.show({
+            type: 'help',
+            text1: 'Hello',
+            text2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum  👋',
+            visibilityTime: 2000
+          })
+          break;
+  
 
       default:
         this.props.navigation.navigate('ViewMiMunicipio');
@@ -130,6 +139,13 @@ const actions = [
     name: "6",
     color: colors.secondary,
     position: 6
+  },
+  {
+    text: "Toast help",
+    icon: <IconMaterialIcons name='add-task' size={IconSize} color={colors.white} />,
+    name: "7",
+    color: colors.secondary,
+    position: 7
   }
 
 ];

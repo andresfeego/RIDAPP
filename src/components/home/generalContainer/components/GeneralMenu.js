@@ -67,11 +67,11 @@ class GeneralMenu extends Component {
   }
 
   calcularPositionLeft(offSet) {
-    return (((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) + 14 + offSet)
+    return (((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) + 10 + offSet)
   }
 
   calcularPositionCenter(offSet) {
-    return ((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) - 12 + offSet
+    return ((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) - 14 + offSet
   }
 
   calcularPositionRight(offSet) {
@@ -276,7 +276,6 @@ const styles = StyleSheet.create({
     zIndex: 10,
     right: 0,
     elevation: 2
-
   },
 
   leftBar: {
@@ -297,7 +296,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 100,
     backgroundColor: colors.ligthGray,
-    borderRadius: 50
+    borderRadius: 50,
   },
 
   iconContStyle: {
@@ -311,7 +310,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: -24
+    marginBottom: -24,
   }
 
 

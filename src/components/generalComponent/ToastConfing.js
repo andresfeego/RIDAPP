@@ -81,6 +81,24 @@ export const toastConfig = {
     renderLeadingIcon={() => <View backgroundColor={colors.warnLight} ><BotonMenu styles={{paddingHorizontal: 3}} type={type.AntDesign} icon='warning' color={colors.warn}/></View>}
     />
   ),
+  help: (props) => (
+    <BaseToast
+    {...props}
+    style={{ borderLeftColor: colors.mint,
+    height: 'auto'
+   }}
+    contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 20, backgroundColor: colors.mintLight}}
+    text1Style={{
+      fontSize: fontSizeText1,
+      fontWeight: '400'
+    }}
+    text2Style={{
+      fontSize: fontSizeText2,
+    }}
+    text2Props={{numberOfLines: 0}}
+    renderLeadingIcon={() => <View backgroundColor={colors.mintLight} paddingLeft={8}><BotonMenu styles={{paddingHorizontal: 8}} type={type.AntDesign} icon='help' color={colors.mint}/></View>}
+    />
+  ),
 };
 
 

@@ -184,6 +184,8 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         paddingVertical: 10,
+        alignSelf: 'center',
+        margin: 'auto'
     },
     texMenu: {
         textAlignVertical: 'center'
@@ -200,8 +202,7 @@ const styles = StyleSheet.create({
     soloIconMenu: {
         paddingHorizontal: 3,
         height:'100%',
-        textAlignVertical: 'center',
-        marginLeft: 8
+        textAlignVertical: 'center',       
     },
 })
 
