@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import colors from '../../../res/colors';
 import GoBackBar from '../../generalComponent/GoBackBar';
 import { type } from '../../../components/home/header/components/BotonMenu';
-import Boton from '../../../res/Boton';
+import Boton from '../../../res/RidButton';
 
 class NuevoReporte extends Component {
   constructor(props) {

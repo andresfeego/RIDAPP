@@ -5,19 +5,25 @@ import colors from './colors';
 
 export const stylesForm = StyleSheet.create({
     generalInput: {
-        marginBottom: 10,
+        marginBottom: 20,
     },
 
     input1Col:{
-        width: '90%'
+        width: '80%'
     },
     input2Col:{
         width: '45%',
         marginHorizontal: 5
     },
+    container1col: {
+        display: 'flex',
+        width: '100%',
+        alignItems:'center'
+    },
     container2col: {
         display: 'flex',
-        flexDirection:'row'
+        flexDirection:'row',
+        width:'100%'
     },
     iconSmall: {
         borderRadius: 0,

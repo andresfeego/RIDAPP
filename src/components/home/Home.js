@@ -3,7 +3,7 @@ import { Text, View, BackHandler, Alert, StyleSheet, Dimensions } from 'react-na
 import GeneralContainer from './generalContainer/GeneralContainer';
 import Header from '../home/header/Header';
 import ButtomFloating from './generalContainer/components/ButtomFloating';
-import Boton from '../../res/Boton';
+import Boton from '../../res/RidButton';
 import { type } from './header/components/BotonMenu';
 import colors from '../../res/colors';
 import { TextInput } from 'react-native-paper';

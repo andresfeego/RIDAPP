@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import BotonMenu from '../components/home/header/components/BotonMenu';
 import colors from './colors';
 
-class Boton extends Component {
+class RidButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,7 +28,7 @@ class Boton extends Component {
 
     render() {
 
-        let { text, Icono, typoDeicono, colorP } = this.props
+        let { text, Icono, typoDeicono, colorP, onPress } = this.props
 
         let width = 'auto'
 
@@ -37,13 +36,13 @@ class Boton extends Component {
             width = '45%'
         }
 
-        let color = colors.primaryLight
+        let color = colors.primary
 
         if (colorP) {
             color = colorP
         }
         return (
-            <Pressable style={[styles.boton, { width: width, backgroundColor: color }]} >
+            <Pressable style={[styles.boton, { width: width, backgroundColor: color }]} onPress={onPress}>
                 {Icono ?
                     <View style={styles.icono}>
                         <BotonMenu icon={Icono} type={typoDeicono} size={20} color={this.hexToRgb(color)} />
@@ -94,4 +93,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Boton;
+export default RidButton;

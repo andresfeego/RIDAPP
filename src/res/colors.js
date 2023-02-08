@@ -2,11 +2,10 @@ const colors = {
     primary:'#FF6600',
     secondary: '#000094',
     white: '#ffffff',
-    gray: '#383838',
     ligthGray: '#cdcdcd',
     black: '#000000',
     white: '#ffffff',
-
+    
     success: '#6be745',
     error: '#f33446',
     info: '#0098da',
@@ -18,10 +17,20 @@ const colors = {
     infoLight: '#dbf4ff',
     warnLight: '#fff3c4',
     helpLight: '#ffefe3',
-
+    
     primaryLight:'#ffc9a4',
     secondaryLight: '#89a0e6',
-
+    
+    gray0: '#383838',
+    gray1: '#505050',
+    gray2: '#636363',
+    gray3: '#818181',
+    gray4: '#969696',
+    gray5: '#afafaf',
+    gray6: '#c4c4c4',
+    gray7: '#dddddd',
+    gray8: '#eeeeee',
+    gray9: '#f7f7f7',
 };
 
 export default colors;
