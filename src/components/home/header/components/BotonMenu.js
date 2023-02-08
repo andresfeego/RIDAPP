@@ -152,7 +152,9 @@ class BotonMenu extends Component {
                 break;
 
             default:
-                <Text>okokoko</Text>
+                return (
+                    <IconZocial name={'home'} size={iconSize} color={iconColor} style={stylesIcon} />
+                )
                 break;
         }
 

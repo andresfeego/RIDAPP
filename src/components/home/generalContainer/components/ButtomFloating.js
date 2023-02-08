@@ -5,6 +5,7 @@ import colors from '../../../../res/colors';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Toast from 'react-native-toast-message';
+import { HelpTexts } from '../../../../res/HelpTexts';
 
 
 
@@ -17,7 +18,7 @@ class ButtomFloating extends Component {
 
 
   validarDestino(name) {
-    console.log(name)
+
 
     switch (name) {
 
@@ -33,7 +34,7 @@ class ButtomFloating extends Component {
         Toast.show({
           type: 'success',
           text1: 'Hello',
-          text2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum  👋',
+          text2: HelpTexts.ayudaEmail,
           visibilityTime: 2000
         })
         break;
@@ -41,7 +42,7 @@ class ButtomFloating extends Component {
         Toast.show({
           type: 'error',
           text1: 'Hello',
-          text2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum  👋',
+          text2: HelpTexts.ayudaEmail,
           visibilityTime: 2200
         })
         break;
@@ -50,7 +51,7 @@ class ButtomFloating extends Component {
         Toast.show({
           type: 'info',
           text1: 'Hello',
-          text2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum  👋',
+          text2: HelpTexts.ayudaEmail,
           visibilityTime: 2000
         })
         break;
@@ -59,19 +60,19 @@ class ButtomFloating extends Component {
         Toast.show({
           type: 'warn',
           text1: 'Hello',
-          text2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum  👋',
+          text2: HelpTexts.ayudaEmail,
           visibilityTime: 2000
         })
         break;
-        case '7':
-          Toast.show({
-            type: 'help',
-            text1: 'Hello',
-            text2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum  👋',
-            visibilityTime: 2000
-          })
-          break;
-  
+      case '7':
+        Toast.show({
+          type: 'help',
+          text1: 'Hello',
+          text2: HelpTexts.ayudaEmail,
+          visibilityTime: 2000
+        })
+        break;
+
 
       default:
         this.props.navigation.navigate('ViewMiMunicipio');
@@ -82,14 +83,14 @@ class ButtomFloating extends Component {
 
   render() {
     return (
-      <FloatingAction
-      distanceToEdge= {{ vertical: 95, horizontal: 30 }}
-        color={colors.secondary}
-        actions={actions}
-        onPressItem={name => {
-          this.validarDestino(name)
-        }}
-      />
+        <FloatingAction
+          distanceToEdge={{ vertical: 95, horizontal: 30 }}
+          color={colors.secondary}
+          actions={actions}
+          onPressItem={name => {
+            this.validarDestino(name)
+          }}
+        />
     );
   }
 }

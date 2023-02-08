@@ -7,17 +7,17 @@ const colors = {
     black: '#000000',
     white: '#ffffff',
 
-    success: '#65cf45',
+    success: '#6be745',
     error: '#f33446',
     info: '#0098da',
     warn: '#ffcc00',
-    mint: '#58ee94',
+    help: '#ff822e',
 
-    successLight: '#e3ffdb',
+    successLight: '#c1f7b2',
     errorLight: '#ffe0e3',
     infoLight: '#dbf4ff',
     warnLight: '#fff3c4',
-    mintLight: '#dcf9e8',
+    helpLight: '#ffefe3',
 
     primaryLight:'#ffc9a4',
     secondaryLight: '#89a0e6',

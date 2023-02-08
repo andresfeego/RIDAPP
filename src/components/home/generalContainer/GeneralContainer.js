@@ -19,23 +19,23 @@ class GeneralContainer extends Component {
   renderContenido() {
     switch (this.state.idMenu) {
       case 1:
-        return(<Text style={styles.text}> PRONOSTICO </Text>)
+        return (<Text style={styles.text}> PRONOSTICO </Text>)
         break;
 
       case 2:
-        return(<Text style={styles.text}> TAREAS </Text>)
+        return (<Text style={styles.text}> TAREAS </Text>)
         break;
 
       case 3:
-        return(<Text style={styles.text}> HOME </Text>)
+        return (<Text style={styles.text}> HOME </Text>)
         break;
 
       case 4:
-        return(<Text style={styles.text}> REPORTES </Text>)
+        return (<Text style={styles.text}> REPORTES </Text>)
         break;
-        
-        case 5:
-        return(<Text style={styles.text}> NOTICIAS </Text>)
+
+      case 5:
+        return (<Text style={styles.text}> NOTICIAS </Text>)
         break;
 
       default:
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
+    zIndex: -1
   },
   text: {
     fontSize: 50

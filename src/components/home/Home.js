@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, BackHandler, Alert, StyleSheet } from 'react-native'
+import { Text, View, BackHandler, Alert, StyleSheet, Dimensions } from 'react-native'
 import GeneralContainer from './generalContainer/GeneralContainer';
 import Header from '../home/header/Header';
 import ButtomFloating from './generalContainer/components/ButtomFloating';
@@ -7,11 +7,22 @@ import Boton from '../../res/Boton';
 import { type } from './header/components/BotonMenu';
 import colors from '../../res/colors';
 import { TextInput } from 'react-native-paper';
+import { stylesForm } from '../../res/EstilosFormularios';
+import HelpButton from '../generalComponent/HelpButton';
+import { HelpTexts } from '../../res/HelpTexts';
 
-
-
+const windowHeight = Dimensions.get('window').height;
 
 class Home extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            securePass: true
+        };
+    };
+
 
     componentDidMount() {
         this.BackHandler = BackHandler.addEventListener('hadwareBackPress', this.onBackButtonEvent);
@@ -36,18 +47,27 @@ class Home extends Component {
                 <Boton text='ok ok ok' Icono='home' typoDeicono={type.AntDesign} colorP={colors.white} />
                 <Boton Icono='home' typoDeicono={type.AntDesign} colorP={colors.secondaryLight} />
                 <TextInput
-                    style={{ width: '100%'}}
+                    style={[stylesForm.generalInput, stylesForm.input1Col]}
                     label="Password"
-                    secureTextEntry
-                    right={<TextInput.Icon icon="eye" />}
-                    
+                    secureTextEntry={this.state.securePass}
+                    right={<TextInput.Icon icon="eye" onPress={() => this.setState({ securePass: !this.state.securePass })} />}
+
                 />
-                <TextInput
-                    style={{ width: '100%'}}
-                    label="Email"
-                />
-                <GeneralContainer />
+                <View style={stylesForm.container2col}>
+
+                    <TextInput
+                        style={[stylesForm.generalInput, stylesForm.input2Col]}
+                        label="Email"
+                        right={HelpButton("okok", HelpTexts.ayudaEmail, 500)}
+
+                    />
+                    <TextInput
+                        style={[stylesForm.generalInput, stylesForm.input2Col]}
+                        label="Email"
+                    />
+                </View>
                 <ButtomFloating navigation={this.props.navigation} />
+                <GeneralContainer />
             </View>
         );
     }
@@ -55,9 +75,9 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        height: windowHeight
     }
 })
 
