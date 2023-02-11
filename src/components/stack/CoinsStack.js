@@ -12,6 +12,7 @@ import ViewReportantes from '../generalContent/viewsMenu/viewReportantes/ViewRep
 import ButtomFloating from '../home/generalContainer/components/ButtomFloating';
 import NuevoReporte from '../generalContent/reportes/NuevoReporte';
 import NuevaTarea from '../generalContent/tareas/NuevaTarea';
+import NuevoUsuarioRep from '../generalContent/usuarios/NuevoUsuarioRep';
 
 
 
@@ -37,6 +38,7 @@ const CoinsStack = () => {
             <Stack.Screen name="ButtomFloating" component={ButtomFloating} />
             <Stack.Screen name="NuevoReporte" component={NuevoReporte} />
             <Stack.Screen name="NuevaTarea" component={NuevaTarea} />
+            <Stack.Screen name="NuevoUsuarioRep" component={NuevoUsuarioRep} />
         </Stack.Navigator>
     );
 

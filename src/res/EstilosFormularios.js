@@ -23,7 +23,8 @@ export const stylesForm = StyleSheet.create({
     container2col: {
         display: 'flex',
         flexDirection:'row',
-        width:'100%'
+        width:'100%',
+        marginStart: 20
     },
     iconSmall: {
         borderRadius: 0,

@@ -163,7 +163,7 @@ class Splash extends Component {
                         </Pressable>
                         <Text style={{ color: colors.primary, fontWeight: '800' }}>  |  </Text>
                         <Pressable>
-                            <Text>
+                            <Text onPress={() => this.props.navigation.navigate("NuevoUsuarioRep")}>
                                 Quiero ser reportante
                             </Text>
                         </Pressable>

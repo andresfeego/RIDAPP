@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         backgroundColor: colors.primary,
         flexDirection: 'row',
+        marginBottom:20,
     },
     iconBack: {
         paddingHorizontal: 10,
