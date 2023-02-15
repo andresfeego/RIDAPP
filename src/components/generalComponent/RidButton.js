@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import BotonMenu from '../components/home/header/components/BotonMenu';
-import colors from './colors';
+import BotonMenu from '../home/header/components/BotonMenu';
+import colors from '../../res/colors';
 
 class RidButton extends Component {
     constructor(props) {
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         height: 40,
         alignItems: 'center',
-        minWidth: 40
+        minWidth: 40,
+        marginTop: 10
 
     },
 

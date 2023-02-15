@@ -102,13 +102,13 @@ class MenuHeader extends Component {
 
           <View style={styles.listaMenu}>
             
-            <BotonMenu navigation={this.props.navigation} type={type.Foundation} icon='map' label={'Mi Municipio'} goTo={'ViewMiMunicipio'}></BotonMenu>
-            <BotonMenu navigation={this.props.navigation} type={type.SimpleLineIcons} icon='puzzle' label={'Dependencias'} goTo={'ViewDependencias'}></BotonMenu>
-            <BotonMenu navigation={this.props.navigation} type={type.MaterialCommunityIcons} icon='police-badge-outline' label={'Organismos'} goTo={'ViewOrganismos'}></BotonMenu>
-            <BotonMenu navigation={this.props.navigation} type={type.FontAwesome5} icon='eye' label={'Auditores'} goTo={'ViewAuditores'}></BotonMenu>
-            <BotonMenu navigation={this.props.navigation} type={type.FontAwesome5} icon='user-astronaut' label={'Reportantes'} goTo={'ViewReportantes'}></BotonMenu>
-            <BotonMenu navigation={this.props.navigation} type={type.Entypo} icon='book' label={'Manuales funciones'} goTo={'ViewManualesFunciones'}></BotonMenu>
-            <BotonMenu navigation={this.props.navigation} type={type.FontAwesome} icon='book' label={'Manuales obligaciones'} goTo={'ViewManualesObligaciones'}></BotonMenu>
+            <BotonMenu  type={type.Foundation} icon='map' label={'Mi Municipio'} goTo={'ViewMiMunicipio'}></BotonMenu>
+            <BotonMenu  type={type.SimpleLineIcons} icon='puzzle' label={'Dependencias'} goTo={'ViewDependencias'}></BotonMenu>
+            <BotonMenu  type={type.MaterialCommunityIcons} icon='police-badge-outline' label={'Organismos'} goTo={'ViewOrganismos'}></BotonMenu>
+            <BotonMenu  type={type.FontAwesome5} icon='eye' label={'Auditores'} goTo={'ViewAuditores'}></BotonMenu>
+            <BotonMenu  type={type.FontAwesome5} icon='user-astronaut' label={'Reportantes'} goTo={'ViewReportantes'}></BotonMenu>
+            <BotonMenu  type={type.Entypo} icon='book' label={'Manuales funciones'} goTo={'ViewManualesFunciones'}></BotonMenu>
+            <BotonMenu  type={type.FontAwesome} icon='book' label={'Manuales obligaciones'} goTo={'ViewManualesObligaciones'}></BotonMenu>
            
           </View>
 

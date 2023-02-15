@@ -6,6 +6,7 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Toast from 'react-native-toast-message';
 import { HelpTexts } from '../../../../res/HelpTexts';
+import { connect } from 'react-redux';
 
 
 
@@ -23,11 +24,11 @@ class ButtomFloating extends Component {
     switch (name) {
 
       case '1':
-        this.props.navigation.navigate('NuevoReporte');
+        this.props.navigationRed.navigate('NuevoReporte');
         break;
 
       case '2':
-        this.props.navigation.navigate('NuevaTarea');
+        this.props.navigationRed.navigate('NuevaTarea');
         break;
 
       case '3':
@@ -75,7 +76,7 @@ class ButtomFloating extends Component {
 
 
       default:
-        this.props.navigation.navigate('ViewMiMunicipio');
+        this.props.navigationRed.navigate('ViewMiMunicipio');
         break;
     }
   }
@@ -150,5 +151,11 @@ const actions = [
   }
 
 ];
+const mapStateToProps = (state) => {
+  return {
+      navigationRed: state.navigationRed
+  }
+}
 
-export default ButtomFloating;
+export default connect(mapStateToProps)(ButtomFloating);
+

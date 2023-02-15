@@ -12,7 +12,7 @@ import ViewReportantes from '../generalContent/viewsMenu/viewReportantes/ViewRep
 import ButtomFloating from '../home/generalContainer/components/ButtomFloating';
 import NuevoReporte from '../generalContent/reportes/NuevoReporte';
 import NuevaTarea from '../generalContent/tareas/NuevaTarea';
-import NuevoUsuarioRep from '../generalContent/usuarios/NuevoUsuarioRep';
+import NuevoUsuarioRep from '../generalContent/usuarios/NuevoUsuario';
 
 
 

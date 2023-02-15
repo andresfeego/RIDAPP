@@ -5,7 +5,7 @@ import Toast from 'react-native-toast-message';
 import { toastConfig } from './src/components/generalComponent/ToastConfig';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { theme } from './src/res/EstilosFormularios';
-import localStore from './src/res/LocalStore';
+import localStore from './src/res/localStore/LocalStore';
 import { Provider } from 'react-redux';
 
 
@@ -20,7 +20,7 @@ const App = () => {
         </PaperProvider>
 
         <Toast config={toastConfig} />
-        
+
       </Provider>
     </NavigationContainer>
   );

@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MenuHeader navigation={this.props.navigation}/>
+        <MenuHeader />
       </View>
     );
   }

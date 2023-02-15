@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, BackHandler, Alert, StyleSheet, Dimensions } from 'react-native'
+import { Text, View, BackHandler, StyleSheet, Dimensions } from 'react-native'
 import GeneralContainer from './generalContainer/GeneralContainer';
 import Header from '../home/header/Header';
 import ButtomFloating from './generalContainer/components/ButtomFloating';
-import Boton from '../../res/RidButton';
+import Boton from '../generalComponent/RidButton';
 import { type } from './header/components/BotonMenu';
 import colors from '../../res/colors';
 import { TextInput } from 'react-native-paper';
@@ -42,7 +42,7 @@ class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <Header navigation={this.props.navigation} />
+                <Header/>
                 <Boton text='ok ok ok' />
                 <Boton text='ok ok ok' Icono='home' typoDeicono={type.AntDesign} colorP={colors.white} />
                 <Boton Icono='home' typoDeicono={type.AntDesign} colorP={colors.secondaryLight} />
@@ -58,7 +58,7 @@ class Home extends Component {
                     <TextInput
                         style={[stylesForm.generalInput, stylesForm.input2Col]}
                         label="Email"
-                        right={HelpButton("okok", HelpTexts.ayudaEmail, 500)}
+                        right={HelpButton("okok", HelpTexts.ayudaEmail, 3000)}
 
                     />
                     <TextInput
@@ -66,7 +66,7 @@ class Home extends Component {
                         label="Email"
                     />
                 </View>
-                <ButtomFloating navigation={this.props.navigation} />
+                <ButtomFloating />
                 <GeneralContainer />
             </View>
         );

@@ -5,11 +5,14 @@ import colors from './colors';
 
 export const stylesForm = StyleSheet.create({
     generalInput: {
-        marginBottom: 20,
+        marginTop: 10,
     },
 
-    input1Col:{
+    input1Col80:{
         width: '80%'
+    },
+    input1Col93:{
+        width: '93%'
     },
     input2Col:{
         width: '45%',
@@ -18,7 +21,8 @@ export const stylesForm = StyleSheet.create({
     container1col: {
         display: 'flex',
         width: '100%',
-        alignItems:'center'
+        alignItems:'center',
+        flex: 1
     },
     container2col: {
         display: 'flex',
@@ -33,7 +37,10 @@ export const stylesForm = StyleSheet.create({
         right: -30,
         color: 'red',
         transform: [{scale: 0.6}]
-    }
+    },
+
+    
+
 })
 
 
@@ -76,7 +83,7 @@ export const theme = {
       "elevation": {
         "level0": "transparent",
         "level1": "rgb(250, 242, 242)",
-        "level2": "rgb(248, 236, 235)",
+        "level2": "rgb(255, 255, 255)",
         "level3": "rgb(245, 230, 227)",
         "level4": "rgb(244, 228, 224)",
         "level5": "rgb(242, 225, 219)"

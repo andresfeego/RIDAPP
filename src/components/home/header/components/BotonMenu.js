@@ -17,6 +17,7 @@ import IconOcticons from 'react-native-vector-icons/Octicons';
 import IconSimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import IconZocial from 'react-native-vector-icons/Zocial';
 import colors from '../../../../res/colors';
+import { connect } from 'react-redux';
 
 export const type = {
     Foundation: 'Foundation',
@@ -166,7 +167,7 @@ class BotonMenu extends Component {
         return (
             goTo != '' && goTo != undefined ?
 
-                <Pressable style={styles.botonMenu} onPress={() => this.props.navigation.navigate(goTo)} >
+                <Pressable style={styles.botonMenu} onPress={() => this.props.navigationRed.navigate(goTo)} >
                     {this.renderIcon()}
                     <Text style={styles.texMenu}> {label} </Text>
                 </Pressable>
@@ -208,5 +209,11 @@ const styles = StyleSheet.create({
     },
 })
 
+const mapStateToProps = (state) => {
+    return {
+        navigationRed: state.navigationRed
+    }
+}
 
-export default BotonMenu;
+export default connect(mapStateToProps)(BotonMenu);
+

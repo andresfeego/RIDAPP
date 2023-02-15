@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, Pressable, BackHandler, Animated } from 'react-native'
-import { panGestureHandlerCustomNativeProps } from 'react-native-gesture-handler/lib/typescript/handlers/PanGestureHandler';
-import LinearGradient from 'react-native-linear-gradient';
-import { TextInput } from 'react-native-paper';
+import { StyleSheet, View, Animated, Pressable, Text, Dimensions } from 'react-native'
 import colors from '../../res/colors';
 import { stylesForm } from '../../res/EstilosFormularios';
-import RidButton from '../../res/RidButton';
+import Login from '../generalContent/usuarios/Login';
+import { connect } from 'react-redux';
+import { setNavigationRed } from '../../res/localStore/Actions';
 
+
+const windowHeight = Dimensions.get('window').height;
 
 class Splash extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             scale: new Animated.Value(1),
             top: new Animated.Value(150),
             finishAnimated: false,
             opacity: new Animated.Value(0),
-            securePass: true
-
         };
     }
 
     componentDidMount() {
 
         this.iniciarAnimacion();
-
+        this.props.setNavigationRed(this.props.navigation);
     }
+
+    componentWillMount
 
     pulse(num) {
         return new Promise((resolve, reject) => {
@@ -110,8 +112,6 @@ class Splash extends Component {
 
     render() {
 
-
-
         const chartConfig = {
             backgroundGradientFrom: "#1E29",
             backgroundGradientFromOpacity: 0,
@@ -140,20 +140,8 @@ class Splash extends Component {
                 </View>
 
                 <Animated.View style={[stylesForm.container1col, styles.containerForm, { display: displayForm, opacity: this.state.opacity }]}>
-                    <TextInput
-                        style={[stylesForm.generalInput, stylesForm.input1Col]}
-                        label="Usuario"
-                        right={<TextInput.Icon icon="account"  />}
 
-                    />
-                    <TextInput
-                        style={[stylesForm.generalInput, stylesForm.input1Col]}
-                        label="Password"
-                        secureTextEntry={this.state.securePass}
-                        right={<TextInput.Icon icon="eye" onPress={() => this.setState({ securePass: !this.state.securePass })} />}
-
-                    />
-                    <RidButton style={{marginTop: 10}}text='iniciar sesión'  onPress={() => this.props.navigation.navigate("Home")}/>
+                    <Login style={[stylesForm.container1col, styles.containerForm]}></Login>
 
                     <View style={styles.links}>
                         <Pressable>
@@ -162,7 +150,7 @@ class Splash extends Component {
                             </Text>
                         </Pressable>
                         <Text style={{ color: colors.primary, fontWeight: '800' }}>  |  </Text>
-                        <Pressable>
+                        <Pressable  >
                             <Text onPress={() => this.props.navigation.navigate("NuevoUsuarioRep")}>
                                 Quiero ser reportante
                             </Text>
@@ -209,15 +197,27 @@ const styles = StyleSheet.create({
     containerImageAni: {
         height: '50%',
     },
-    containerForm: {
-        flex: 1,
-    },
+
     links: {
         position: 'absolute',
-        bottom: 10,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: windowHeight - 30
     }
 
 })
 
-export default Splash;
+const mapStateToProps = (state) => {
+    return {
+        navigationRed: state.navigationRed
+    }
+}
+
+
+const mapDispatchToProps = {
+    setNavigationRed
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);
+
