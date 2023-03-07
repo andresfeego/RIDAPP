@@ -203,7 +203,6 @@ const styles = StyleSheet.create({
     },
 
     soloIconMenu: {
-        paddingHorizontal: 3,
         height:'100%',
         textAlignVertical: 'center',       
     },

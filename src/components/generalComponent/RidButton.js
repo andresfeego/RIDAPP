@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
         height: 40,
         alignItems: 'center',
         minWidth: 40,
-        marginTop: 10
+        marginTop: 10,
+        marginHorizontal: 5
 
     },
 
@@ -83,14 +84,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlignVertical: 'center',
         justifyContent: 'center',
-        paddingHorizontal: 5,
 
     },
 
-    icono: {
-        padding: 5,
-
-    },
+    
 
 })
 

@@ -4,7 +4,16 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from './colors';
 
 export const HelpTexts = {
-    ayudaEmail: 'Contraseña incorrecta'
+    vacioGeneral: 'Este campo no puede estar vacio',
+    soloTextoGeneral: 'Este campo solo admite texto',
+    soloNumeroGeneral: 'Este campo solo admite números',
+    textoLimiteGeneral: 'El número límite de caracteres para este campo es de : ',
+    formatoMail: 'Formato de correo incorrecto',
+    sinDatoCB: 'Escoge una opción',
+
+
+    ValidandoInfo: 'Validando información, por favor espere'
+
 }
 
 export const errorText = {

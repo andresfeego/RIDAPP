@@ -25,10 +25,14 @@ export const stylesForm = StyleSheet.create({
         flex: 1
     },
     container2col: {
+        marginTop: 20,
+        marginBottom: 50,
         display: 'flex',
         flexDirection:'row',
         width:'100%',
-        marginStart: 20
+        alignItems: 'center',
+        justifyContent: 'center',
+        
     },
     iconSmall: {
         borderRadius: 0,
