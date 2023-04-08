@@ -4,7 +4,7 @@ import { FloatingAction } from "react-native-floating-action";
 import colors from '../../../../res/colors';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Toast from 'react-native-toast-message';
+import {Toast} from 'toastify-react-native';
 import { HelpTexts } from '../../../../res/HelpTexts';
 import { connect } from 'react-redux';
 
@@ -32,12 +32,7 @@ class ButtomFloating extends Component {
         break;
 
       case '3':
-        Toast.show({
-          type: 'success',
-          text1: 'Hello',
-          text2: HelpTexts.ayudaEmail,
-          visibilityTime: 2000
-        })
+        Toast.info('ghfghfgh')
         break;
       case '4':
         Toast.show({
