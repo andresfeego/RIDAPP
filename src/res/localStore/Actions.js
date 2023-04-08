@@ -14,7 +14,7 @@ export const clearUsuario = () => {
 export const setNavigationRed = (auxi) => {
     return {
         type: 'SET_NAVIGATIONRED',
-        navigationRed: auxi
+        navigationRid: auxi
     }
 }
 

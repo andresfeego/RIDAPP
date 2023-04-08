@@ -16,8 +16,8 @@ import { HelpTexts, InputHelpTexts } from '../../../res/HelpTexts';
 import { getTiposDocumento, getTiposGenero } from '../../../res/GetDB';
 import Boton from '../../generalComponent/RidButton';
 import { Switch } from 'react-native-paper';
-import Toast from 'react-native-toast-message';
 import { agregarUsuario } from '../../../res/SetDB';
+import  Toast  from 'toastify-react-native';
 
 class NuevoUsuario extends Component {
   constructor(props) {
@@ -129,6 +129,7 @@ class NuevoUsuario extends Component {
     })
   }
 
+
   cargarImagen(option) {
 
     this.showMenu(false);
@@ -226,23 +227,20 @@ class NuevoUsuario extends Component {
     resolve()
     })
   }
-
-  submit(){
+ 
+  submit = async () => {
+    Toast.warn('Cargando....')
     
-    this.validarErrores().then(() =>{
+   this.validarErrores().then(() =>{
       console.log('erroresfull: ' + this.state.formularioErrors)
       if (this.state.formularioErrors) {
         
-      Toast.show({
-        type: 'error',
-        text1: 'Hay errores',
-        text2: HelpTexts.ValidandoInfo,
-        visibilityTime: 5000
-      })
-      
+        Toast.error('Error')
+        
       } else {
         this.guardar().then(()=> {
-          console.log('ok guardar')
+          Toast.success('ok guardar')
+          this.props.navigationRid.navigate("Home")
         }).catch((err) => {
           console.log('error guardar: ' + err)
         })
@@ -421,7 +419,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    navigationRed: state.navigationRed
+    navigationRid: state.navigationRid
   }
 }
 

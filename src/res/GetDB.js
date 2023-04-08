@@ -36,3 +36,21 @@ export const getTiposGenero = () => {
             });
     })
 }
+
+export const getPermisosXIdInterface = (id) => {
+    return new Promise((resolve, reject) => {
+        request
+            .get('http://192.168.20.22:3020/api/responseRID/permisoXIdInterface/' + id)
+            .set('accept', 'json')
+            .end((err, res) => {
+                if (err) {
+                    reject(err)
+                } else {
+
+                    const respuestaLogin = JSON.parse(res.text);
+                    resolve(respuestaLogin)
+
+                }
+            });
+    })
+}

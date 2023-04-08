@@ -24,11 +24,11 @@ class ButtomFloating extends Component {
     switch (name) {
 
       case '1':
-        this.props.navigationRed.navigate('NuevoReporte');
+        this.props.navigationRid.navigate('NuevoReporte');
         break;
 
       case '2':
-        this.props.navigationRed.navigate('NuevaTarea');
+        this.props.navigationRid.navigate('NuevaTarea');
         break;
 
       case '3':
@@ -76,7 +76,7 @@ class ButtomFloating extends Component {
 
 
       default:
-        this.props.navigationRed.navigate('ViewMiMunicipio');
+        this.props.navigationRid.navigate('ViewMiMunicipio');
         break;
     }
   }
@@ -153,7 +153,7 @@ const actions = [
 ];
 const mapStateToProps = (state) => {
   return {
-      navigationRed: state.navigationRed
+      navigationRid: state.navigationRid
   }
 }
 

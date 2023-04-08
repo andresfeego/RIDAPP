@@ -73,7 +73,7 @@ class Login extends Component {
                 />
                 <HelperText style={[stylesForm.input1Col80]} visible={this.state.formulario.password.error}> {InputHelpTexts(this.state.formulario.password.errorText)} </HelperText>
 
-                <RidButton text='iniciar sesión' onPress={() => this.props.navigationRed.navigate("Home")} />
+                <RidButton text='iniciar sesión' onPress={() => this.props.navigationRid.navigate("Home")} />
 
 
             </View>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        navigationRed: state.navigationRed
+        navigationRid: state.navigationRid
     }
 }
 

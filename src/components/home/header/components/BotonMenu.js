@@ -167,7 +167,7 @@ class BotonMenu extends Component {
         return (
             goTo != '' && goTo != undefined ?
 
-                <Pressable style={styles.botonMenu} onPress={() => this.props.navigationRed.navigate(goTo)} >
+                <Pressable style={styles.botonMenu} onPress={() => this.props.navigationRid.navigate(goTo)} >
                     {this.renderIcon()}
                     <Text style={styles.texMenu}> {label} </Text>
                 </Pressable>
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        navigationRed: state.navigationRed
+        navigationRid: state.navigationRid
     }
 }
 

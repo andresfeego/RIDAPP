@@ -1,4 +1,35 @@
+import { getPermisosXIdInterface } from "./GetDB"
 import { errorText, HelpTexts } from "./HelpTexts"
+
+
+
+
+
+export const validaPermisosInterface = (id, roles) => {
+    return new Promise( async(resolve, reject) => {
+        
+        let listaPermisos = await getPermisosXIdInterface(id)
+        if (listaPermisos.length > 0) {
+            listaPermisos = listaPermisos[0].permisos.split(",")
+        } else {
+            resolve(false)
+        }
+            if (listaPermisos.find(per => per == 100)) {
+            
+            resolve(true)
+            
+        } else {
+        
+            if (listaPermisos.find(per => roles.find(rol => per == rol ) )) {
+                resolve(true)
+            } else {
+                resolve(false)
+            }
+        }
+        
+    })
+}
+
 
 export const validaMail = (text) => {
     return new Promise((resolve, reject) => {

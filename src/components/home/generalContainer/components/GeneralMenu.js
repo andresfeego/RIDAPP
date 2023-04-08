@@ -2,52 +2,23 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, Pressable, Animated } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import colors from '../../../../res/colors';
+import { validaPermisosInterface } from '../../../../res/validatorsForms';
 import BotonMenu, { type } from '../../header/components/BotonMenu';
+import { connect } from 'react-redux';
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
-const buttons = [
-
-  {
-    nombre: "Boton 1",
-    icon: 'weather-lightning-rainy',
-    idMenu: 1,
-    type: type.MaterialCommunityIcons,
-
-  },
-  {
-    nombre: "Boton 2",
-    icon: 'tasks',
-    idMenu: 2,
-    type: type.FontAwesome5,
-  },
-  {
-    nombre: "Boton 3",
-    icon: 'home',
-    idMenu: 3,
-    type: type.AntDesign,
-  },
-  {
-    nombre: "Boton 3",
-    icon: 'alert-triangle',
-    idMenu: 4,
-    type: type.Feather,
-  },
-  {
-    nombre: "Boton 3",
-    icon: 'notification',
-    idMenu: 5,
-    type: type.AntDesign,
-  }
-]
-
 class GeneralMenu extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-      selectedButton: 3,
+      activeButtons: this.props.activeButtons,
+      selectedButton: Math.ceil(this.props.activeButtons.length/2),
+      buttonsLength: this.props.activeButtons.length,
       offSetLeftBar: new Animated.Value(0),
       offSetCenterBar: new Animated.Value(0),
       offSetRightBar: new Animated.Value(0),
@@ -55,33 +26,37 @@ class GeneralMenu extends Component {
       bottomIcon: new Animated.Value(20),
       elevationCenter: new Animated.Value(6)
     };
+    
   }
-
+  
   componentDidMount() {
     this.setState({
       offSetLeftBar: new Animated.Value(this.calcularPositionLeft(-28)),
       offSetCenterBar: new Animated.Value(this.calcularPositionCenter(0)),
-      offSetRightBar: new Animated.Value(this.calcularPositionRight(-26))
+      offSetRightBar: new Animated.Value(this.calcularPositionRight(-26)),
     })
     this.props.generalContainer.cambiaMenu(this.state.selectedButton)
+    
   }
 
   calcularPositionLeft(offSet) {
-    return (((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) + 10 + offSet)
+    return (((windowWidth - 20) / ((this.state.buttonsLength)) / 2) + ((windowWidth - 20) / ((this.state.buttonsLength)) * (this.state.selectedButton - 1)) + 10 + offSet)
   }
 
   calcularPositionCenter(offSet) {
-    return ((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) - 14 + offSet
+    console.log(this.state.buttonsLength)
+    return ((windowWidth - 20) / ((this.state.buttonsLength)) / 2) + ((windowWidth - 20) / ((this.state.buttonsLength)) * (this.state.selectedButton - 1)) - 14 + offSet
   }
 
   calcularPositionRight(offSet) {
-    return windowWidth - (((windowWidth - 20) / ((buttons.length)) / 2) + ((windowWidth - 20) / ((buttons.length)) * (this.state.selectedButton - 1)) + 14) + offSet
+    return windowWidth - (((windowWidth - 20) / ((this.state.buttonsLength)) / 2) + ((windowWidth - 20) / ((this.state.buttonsLength)) * (this.state.selectedButton - 1)) + 14) + offSet
   }
+  
 
   cambiaMenu(idMenu) {
     if (this.state.selectedButton != idMenu) {
       this.props.generalContainer.cambiaMenu(idMenu)
-//
+      //
       Animated.timing(
         this.state.bottomIcon,
         {
@@ -212,19 +187,29 @@ class GeneralMenu extends Component {
     }
   }
 
+renderIcon(buttonItem, index){
 
+            return( 
+              <Pressable onPress={() => this.cambiaMenu(buttonItem.idMenu)} style={styles.iconContStyle} key={'button' + index}>
+              <Animated.View style={[styles.iconStyle, { bottom: this.state.selectedButton == buttonItem.idMenu ? this.state.bottomIcon : 0 }]}>
+                <BotonMenu type={buttonItem.type} icon={buttonItem.icon} size={24} color={this.state.selectedButton == buttonItem.idMenu ? colors.primary : colors.gray} />
+              </Animated.View>
+            </Pressable>
+            )
+          
+            
+           
+}
 
 
   renderIcons() {
 
     return (
       <View style={styles.containerIcons}>
-        {buttons.map((buttonItem, index) =>
-          <Pressable onPress={() => this.cambiaMenu(buttonItem.idMenu)} style={styles.iconContStyle} key={'button' + index}>
-            <Animated.View style={[styles.iconStyle, { bottom: this.state.selectedButton == buttonItem.idMenu ? this.state.bottomIcon : 0 }]}>
-              <BotonMenu type={buttonItem.type} icon={buttonItem.icon} size={24} color={this.state.selectedButton == buttonItem.idMenu ? colors.primary: colors.gray}/>
-            </Animated.View>
-          </Pressable>
+        {this.state.activeButtons.map((buttonItem, index) => 
+          this.renderIcon(buttonItem, index)
+        
+
         )}
       </View>
     )
@@ -316,4 +301,10 @@ const styles = StyleSheet.create({
 
 })
 
-export default GeneralMenu;
+const mapStateToProps = (state) => {
+  return {
+      usuario: state.usuario
+  }
+}
+export default connect(mapStateToProps)(GeneralMenu);
+

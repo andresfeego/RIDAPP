@@ -1,13 +1,84 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import GeneralMenu from './components/GeneralMenu';
+import { connect } from 'react-redux';
+import BotonMenu, { type } from '../header/components/BotonMenu';
+import { validaPermisosInterface } from '../../../res/validatorsForms';
 
+const buttons = [
+
+  {
+    nombre: "Boton 1",
+    icon: 'weather-lightning-rainy',
+    idMenu: 1,
+    type: type.MaterialCommunityIcons,
+    idInterface: 2
+
+  },
+  {
+    nombre: "Boton 2",
+    icon: 'tasks',
+    idMenu: 2,
+    type: type.FontAwesome5,
+    idInterface: 3
+
+  },
+  {
+    nombre: "Boton 3",
+    icon: 'home',
+    idMenu: 3,
+    type: type.AntDesign,
+    idInterface: 4
+
+  },
+  {
+    nombre: "Boton 3",
+    icon: 'alert-triangle',
+    idMenu: 4,
+    type: type.Feather,
+    idInterface: 5
+
+  },
+  {
+    nombre: "Boton 3",
+    icon: 'notification',
+    idMenu: 5,
+    type: type.AntDesign,
+    idInterface: 6
+
+  }
+]
 class GeneralContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idMenu: 1
+      idMenu: 1,
+      activeButtons: []
     };
+  }
+
+  componentDidMount() {
+    this.filterActiveButtons(this.props.usuario.roles).then((activeButtons) => {
+      this.setState({
+        activeButtons: activeButtons
+      })
+    })
+  }
+
+  async filterActiveButtons(roles) {
+    return new Promise(async (resolve, reject) => {
+      var activeButtons = []
+      await Promise.all(
+        buttons.map(async (button) => {
+          button['permiso'] = await validaPermisosInterface(button.idInterface, roles)
+x          if (button.permiso) {
+            activeButtons.push(button)
+          }
+        })
+      )
+      resolve(activeButtons)
+    })
+
   }
 
   cambiaMenu(idMenu) {
@@ -47,7 +118,9 @@ class GeneralContainer extends Component {
     return (
       <View style={styles.container}>
         {this.renderContenido()}
-        <GeneralMenu generalContainer={this} />
+        {this.state.activeButtons.length > 0 ? 
+        <GeneralMenu generalContainer={this} activeButtons={this.state.activeButtons} />
+      : null}
       </View>
     );
   }
@@ -65,4 +138,10 @@ const styles = StyleSheet.create({
   }
 })
 
-export default GeneralContainer;
+const mapStateToProps = (state) => {
+  return {
+    usuario: state.usuario
+  }
+}
+export default connect(mapStateToProps)(GeneralContainer);
+

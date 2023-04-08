@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux'
 
 
-const auxiusuario = {"id":1057577213,"correo":"andres.feego@gmail.com ","nombre":"Oscar Andres ","apellido":"Manrique","pass":"123456"}
+const auxiusuario = {"id":1057577213,"correo":"andres.feego@gmail.com ","nombre":"Oscar Andres ","apellido":"Manrique","pass":"123456", "roles": ["1","5"]}
 
 
 function usuarioReducer(state = auxiusuario, action) {
@@ -18,10 +18,10 @@ function usuarioReducer(state = auxiusuario, action) {
     }
 }
 
-function navigationRedReducer(state = [], action) {
+function navigationRidReducer(state = [], action) {
     switch (action.type) {
         case 'SET_NAVIGATIONRED':
-            return action.navigationRed;
+            return action.navigationRid;
 
         case 'CLEAR_NAVIGATIONRED':
             return '';
@@ -33,8 +33,8 @@ function navigationRedReducer(state = [], action) {
 }
 
 let rootReducer = combineReducers({
-    usuario: usuarioReducer,
-    navigationRed: navigationRedReducer
+    usuario: usuarioReducer,  // usuario logueado en el sistema
+    navigationRid: navigationRidReducer
 });
 
 

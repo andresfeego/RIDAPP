@@ -4,6 +4,7 @@ import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../../../res/colors';
 import BotonMenu, { type } from './BotonMenu';
+import ItemMenuHeader from './ItemMenuHeader';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -102,7 +103,7 @@ class MenuHeader extends Component {
 
           <View style={styles.listaMenu}>
             
-            <BotonMenu  type={type.Foundation} icon='map' label={'Mi Municipio'} goTo={'ViewMiMunicipio'}></BotonMenu>
+            <ItemMenuHeader  type={type.Foundation} icon='map' label={'Mi Municipio'} goTo={'ViewMiMunicipio'} idInterface={1} ></ItemMenuHeader>
             <BotonMenu  type={type.SimpleLineIcons} icon='puzzle' label={'Dependencias'} goTo={'ViewDependencias'}></BotonMenu>
             <BotonMenu  type={type.MaterialCommunityIcons} icon='police-badge-outline' label={'Organismos'} goTo={'ViewOrganismos'}></BotonMenu>
             <BotonMenu  type={type.FontAwesome5} icon='eye' label={'Auditores'} goTo={'ViewAuditores'}></BotonMenu>

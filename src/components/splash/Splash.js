@@ -68,7 +68,7 @@ class Splash extends Component {
 
     async iniciarAnimacion() {
 
-        this.pulse(3).then(() => {
+        this.pulse(1).then(() => {
 
             Animated.timing(
                 this.state.scale,
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        navigationRed: state.navigationRed
+        navigationRid: state.navigationRid
     }
 }
 
