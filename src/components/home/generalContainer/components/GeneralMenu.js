@@ -53,8 +53,8 @@ class GeneralMenu extends Component {
   }
   
 
-  cambiaMenu(idMenu) {
-    if (this.state.selectedButton != idMenu) {
+  cambiaMenu(idMenu, index) {
+    if (this.state.selectedButton != index) {
       this.props.generalContainer.cambiaMenu(idMenu)
       //
       Animated.timing(
@@ -102,7 +102,7 @@ class GeneralMenu extends Component {
         }
       ).start(() => {
         this.setState({
-          selectedButton: idMenu,
+          selectedButton: index,
 
         }, () => {
           Animated.timing(
@@ -190,9 +190,9 @@ class GeneralMenu extends Component {
 renderIcon(buttonItem, index){
 
             return( 
-              <Pressable onPress={() => this.cambiaMenu(buttonItem.idMenu)} style={styles.iconContStyle} key={'button' + index}>
-              <Animated.View style={[styles.iconStyle, { bottom: this.state.selectedButton == buttonItem.idMenu ? this.state.bottomIcon : 0 }]}>
-                <BotonMenu type={buttonItem.type} icon={buttonItem.icon} size={24} color={this.state.selectedButton == buttonItem.idMenu ? colors.primary : colors.gray} />
+              <Pressable onPress={() => this.cambiaMenu(buttonItem.idMenu, index+1)} style={styles.iconContStyle} key={'button' + index}>
+              <Animated.View style={[styles.iconStyle, { bottom: this.state.selectedButton == index+1 ? this.state.bottomIcon : 0 }]}>
+                <BotonMenu type={buttonItem.type} icon={buttonItem.icon} size={24} color={this.state.selectedButton == index+1 ? colors.primary : colors.gray} />
               </Animated.View>
             </Pressable>
             )

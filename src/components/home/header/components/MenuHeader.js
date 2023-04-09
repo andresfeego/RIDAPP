@@ -115,7 +115,8 @@ class MenuHeader extends Component {
 
         </Animated.View>,
 
-        <Animated.View key='fondoMenu' style={[styles.fondoMenu, { display: verFondo, opacity: fondoOpacity }]} >
+        <Animated.View key='fondoMenu' style={[styles.fondoMenu, { display: verFondo, opacity: fondoOpacity }]} onPress={() => this.cerrarMenu()} >
+          <Pressable style={[styles.fondoMenu,{backgroundColor: 'none'}]} onPress={() => this.cerrarMenu()} />
         </Animated.View>
       ]
     );

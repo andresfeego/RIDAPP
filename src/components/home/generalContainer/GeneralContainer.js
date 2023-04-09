@@ -4,7 +4,10 @@ import GeneralMenu from './components/GeneralMenu';
 import { connect } from 'react-redux';
 import BotonMenu, { type } from '../header/components/BotonMenu';
 import { validaPermisosInterface } from '../../../res/validatorsForms';
-
+import { nuevoMensaje, tiposAlertas } from '../../generalComponent/Toast';
+import colors from '../../../res/colors';
+import Spinner from 'react-native-spinkit'
+import { GeneralMenuLoader, HomeLoader } from '../../generalComponent/ContentLoader';
 const buttons = [
 
   {
@@ -52,7 +55,7 @@ class GeneralContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idMenu: 1,
+      idMenu: 0,
       activeButtons: []
     };
   }
@@ -71,7 +74,7 @@ class GeneralContainer extends Component {
       await Promise.all(
         buttons.map(async (button) => {
           button['permiso'] = await validaPermisosInterface(button.idInterface, roles)
-x          if (button.permiso) {
+          if (button.permiso) {
             activeButtons.push(button)
           }
         })
@@ -110,6 +113,7 @@ x          if (button.permiso) {
         break;
 
       default:
+        return (<HomeLoader/>)
         break;
     }
   }
@@ -118,9 +122,11 @@ x          if (button.permiso) {
     return (
       <View style={styles.container}>
         {this.renderContenido()}
-        {this.state.activeButtons.length > 0 ? 
-        <GeneralMenu generalContainer={this} activeButtons={this.state.activeButtons} />
-      : null}
+        {this.state.activeButtons.length > 0 ?
+          <GeneralMenu generalContainer={this} activeButtons={this.state.activeButtons} />
+          :
+          <GeneralMenuLoader style={{position: 'absolute', bottom: 9}}/>
+          }
       </View>
     );
   }

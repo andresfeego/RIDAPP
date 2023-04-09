@@ -43,7 +43,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <Header/>
-                <Boton text='ok ok ok' />
+                {/* <Boton text='ok ok ok' />
                 <Boton text='ok ok ok' Icono='home' typoDeicono={type.AntDesign} colorP={colors.white} />
                 <Boton Icono='home' typoDeicono={type.AntDesign} colorP={colors.secondaryLight} />
                 <TextInput
@@ -65,7 +65,7 @@ class Home extends Component {
                         style={[stylesForm.generalInput, stylesForm.input2Col]}
                         label="Email"
                     />
-                </View>
+                </View> */}
                 <ButtomFloating />
                 <GeneralContainer />
             </View>

@@ -7,6 +7,7 @@ import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {Toast} from 'toastify-react-native';
 import { HelpTexts } from '../../../../res/HelpTexts';
 import { connect } from 'react-redux';
+import { nuevoMensaje, tiposAlertas } from '../../../generalComponent/Toast';
 
 
 
@@ -32,24 +33,14 @@ class ButtomFloating extends Component {
         break;
 
       case '3':
-        Toast.info('ghfghfgh')
+        nuevoMensaje(tiposAlertas.cargando, 'Cargando...')
         break;
       case '4':
-        Toast.show({
-          type: 'error',
-          text1: 'Hello',
-          text2: HelpTexts.ayudaEmail,
-          visibilityTime: 2200
-        })
+        nuevoMensaje(tiposAlertas.success, 'no sirvio', 1000)
         break;
 
       case '5':
-        Toast.show({
-          type: 'info',
-          text1: 'Hello',
-          text2: HelpTexts.ayudaEmail,
-          visibilityTime: 2000
-        })
+        Toast.info('okokokokokokokoookok')
         break;
 
       case '6':

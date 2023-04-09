@@ -7,7 +7,8 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { theme } from './src/res/EstilosFormularios';
 import localStore from './src/res/localStore/LocalStore';
 import { Provider } from 'react-redux';
-import ToastManager from 'toastify-react-native';
+import Container from 'toastify-react-native';
+import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 
 
@@ -20,7 +21,17 @@ const App = () => {
           <CoinsStack />
         </PaperProvider>
 
-          <ToastManager />
+        <Container
+          position={'top'}
+          duration={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          animationStyle={'upInUpOut'}
+          draggable
+          style={{ position: 'absolute', top: 10 }}
+        />
+
 
       </Provider>
     </NavigationContainer>
